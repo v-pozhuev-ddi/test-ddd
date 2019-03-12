@@ -1,0 +1,1 @@
+C:30:"PHPUnit\Runner\TestResultCache":316:{a:2:{s:7:"defects";a:2:{s:49:"App\Tests\Unit\AddressServiceTest::testAddAddress";i:4;s:59:"App\Tests\Unit\AddressServiceTest::testRemoveDefaultAddress";i:4;}s:5:"times";a:2:{s:49:"App\Tests\Unit\AddressServiceTest::testAddAddress";d:1.569;s:59:"App\Tests\Unit\AddressServiceTest::testRemoveDefaultAddress";d:0.246;}}}

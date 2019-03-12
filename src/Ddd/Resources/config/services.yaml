@@ -1,0 +1,30 @@
+imports:
+  - { resource: "transformers.yaml"}
+
+services:
+
+  ddd.event_listener.api_exception:
+     class: App\Ddd\Application\EventListener\ApiExceptionListener
+     tags:
+         - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 200 }
+
+  ## Fractal Service
+  ddd.fractal.manager:
+       class: App\Ddd\Application\FractalService
+       public: true
+       arguments: ['%apiUrl%']
+  App\Ddd\Application\FractalService: '@ddd.fractal.manager'
+
+  ## Client Service
+  ddd.client.service:
+    class: App\Ddd\Domain\Client\ClientService
+    public: true
+    arguments: ['@doctrine.orm.entity_manager','@ddd.client.transformer','@ddd.fractal.manager']
+  App\Ddd\Domain\Client\ClientService: '@ddd.client.service'
+
+  ## Address Service
+  ddd.address.service:
+    class: App\Ddd\Domain\Address\AddressService
+    public: true
+    arguments: ['@doctrine.orm.entity_manager','@ddd.address.transformer', '@validator']
+  App\Ddd\Domain\Address\AddressService: '@ddd.address.service'

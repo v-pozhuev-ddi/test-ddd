@@ -1,0 +1,5 @@
+services:
+    ddd.client.transformer:
+        class: App\Ddd\Domain\Client\Transformer\ClientTransformer
+    ddd.address.transformer:
+        class: App\Ddd\Domain\Address\Transformer\AddressTransformer
